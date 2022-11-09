@@ -1,0 +1,100 @@
+<div class="container">
+  <mat-tab-group>
+    <mat-tab label="Hard Skills">
+      <div class="container-fluid">
+        <mat-card>
+          <mat-card-content>
+            <mat-grid-list cols="2" gutterSize="10" rowHeight="100px">
+              <div *ngFor="let skill of hardSkills">
+                <mat-grid-tile>
+                  <div class="full-width">
+                    <label for="hardSkill_{{skill.id}}" class="skill-label">
+                      {{skill.skillName}}
+                    </label>
+                    <mat-progress-bar id="hardSkill_{{skill.id}}" mode="determinate" [value]="skill.skillLevel">
+                    </mat-progress-bar>
+                  </div>
+                </mat-grid-tile>
+              </div>
+            </mat-grid-list>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Soft Skills">
+      <div class="container-fluid">
+        <mat-card>
+          <mat-card-content>
+            <mat-grid-list cols="2" gutterSize="10" rowHeight="100px">
+              <div *ngFor="let skill of softSkills">
+                <mat-grid-tile>
+                  <div class="full-width">
+                    <label for="softSkill_{{skill.id}}" class="skill-label">
+                      {{skill.skillName}}
+                    </label>
+                    <mat-progress-bar id="softSkill_{{skill.id}}" mode="determinate" [value]="skill.skillLevel">
+                    </mat-progress-bar>
+                  </div>
+                </mat-grid-tile>
+              </div>
+            </mat-grid-list>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Language Skills">
+      <div class="container-fluid">
+        <mat-grid-list cols="2" gutterSize="10" rowHeight="300px">
+          <div *ngFor="let language of languages">
+            <mat-grid-tile>
+              <div class="full-width">
+                <mat-card>
+                  <mat-card-title>
+                    {{ language.languageName}}
+                  </mat-card-title>
+                  <mat-card-content class="padding-10px">
+                    <div class="full-width">
+                      <label for="language_{{language.id}}_listening" class="skill-label">
+                        Listening
+                      </label>
+                      <mat-progress-bar id="language_{{language.id}}_listening" mode="determinate" [value]="language.listeningLevel">
+                      </mat-progress-bar>
+                    </div>
+                    <br>
+                    <div class="full-width">
+                      <label for="language_{{language.id}}_reading" class="skill-label">
+                        Reading
+                      </label>
+                      <mat-progress-bar id="language_{{language.id}}_reading" mode="determinate" [value]="language.listeningLevel">
+                      </mat-progress-bar>
+                    </div>
+                    <br>
+                    <div class="full-width">
+                      <label for="language_{{language.id}}_writing" class="skill-label">
+                        Writing
+                      </label>
+                      <mat-progress-bar id="language_{{language.id}}_writing" mode="determinate" [value]="language.listeningLevel">
+                      </mat-progress-bar>
+                    </div>
+                    <br>
+                    <div class="full-width">
+                      <label for="language_{{language.id}}_speaking" class="skill-label">
+                        Speaking
+                      </label>
+                      <mat-progress-bar id="language_{{language.id}}_speaking" mode="determinate" [value]="language.listeningLevel">
+                      </mat-progress-bar>
+                    </div>
+                    <br>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </mat-grid-tile>
+
+          </div>
+        </mat-grid-list>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
