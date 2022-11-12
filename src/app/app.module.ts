@@ -15,6 +15,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { SkillsComponent } from './skills/skills.component';
 import { WorkExperiencesComponent } from './work-experiences/work-experiences.component';
@@ -42,7 +45,9 @@ import { SummaryComponent } from './summary/summary.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
