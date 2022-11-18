@@ -6,7 +6,11 @@
           <mat-card-title>{{ experience.title }}</mat-card-title>
           <mat-card-subtitle> {{ experience.company }} </mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content [innerHTML]="experience.description">
+        <mat-divider></mat-divider>
+        <mat-card-content class="padding-10px">
+          <div [innerHTML]="experience.description">
+
+          </div>
         </mat-card-content>
         <mat-card-footer>
           <div class="container-fluid">
