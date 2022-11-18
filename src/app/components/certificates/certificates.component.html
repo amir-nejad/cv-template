@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="certificates" *ngIf="certificates">
+    <mat-grid-list cols="2" gutterSize="20px" rowHeight="600px">
+      <mat-grid-tile *ngFor="let certificate of certificates">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{certificate.certificateName}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{certificate.issuingOrganization}}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <img mat-card-image src="../../assets/images/certificate.png" alt="certificate">
+          <mat-card-content>
+            <p>
+              <strong>Credential ID:</strong>
+              {{certificate.credentialId}}
+            </p>
+            <p>
+              <strong>Issue Date:</strong>
+              {{certificate.issueDate.getFullYear()}}/{{certificate.issueDate.getMonth()}}
+            </p>
+            <p>
+              <strong>Expiration Date:</strong>
+              <span *ngIf="certificate.expireDate">
+                {{certificate.expireDate.getFullYear()}}/{{certificate.expireDate.getMonth()}}
+              </span>
+              <span *ngIf="!certificate.expireDate">
+                No Expiration!
+              </span>
+            </p>
+          </mat-card-content>
+          <mat-card-footer class="padding-10px">
+            <a target="_blank" [href]="certificate.credentialUrl" mat-stroked-button>
+              See Credential
+              <fa-icon [icon]="faArrowUpRightFromSquare">
+
+              </fa-icon>
+            </a>
+          </mat-card-footer>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div *ngIf="!certificates">
+    Nothing to show...
+  </div>
+</div>

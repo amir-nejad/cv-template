@@ -1,6 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
-import { faListUl, faCode, faBriefcase, faGraduationCap, faHandshakeAngle } from '@fortawesome/free-solid-svg-icons';
+import { faListUl, faCode, faBriefcase, faGraduationCap, faHandshakeAngle, faCertificate } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class AppComponent {
   faBriefcase = faBriefcase;
   faGraduationCap = faGraduationCap;
   faHandshakeAngle = faHandshakeAngle;
+  faCertificate = faCertificate;
 
   mobileQuery: MediaQueryList;
 
