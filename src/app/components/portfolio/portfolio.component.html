@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-grid-list cols="4" gutterSize="5" rowHeight="400px">
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+      <mat-card id="project_{{tile.project.id}}" class="full-width">
+        <mat-card-header>
+          <mat-card-title>
+            {{ tile.project.projectName }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <span>
+              {{ tile.project.projectStartDate.getFullYear() }}/{{tile.project.projectStartDate.getMonth()}}
+            </span>
+            <span>-</span>
+            <span *ngIf="tile.project.projectEndDate">
+              {{ tile.project.projectEndDate.getFullYear() }}/{{tile.project.projectEndDate.getMonth()}}
+            </span>
+            <span *ngIf="!tile.project.projectEndDate">
+              Present
+            </span>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img [src]="tile.project.projectImage" height="200" style="width: 100%; object-fit: cover;" alt="projectImage">
+        <mat-card-content class="padding-5px">
+          <div [innerHTML]="tile.project.projectDescription">
+
+          </div>
+        </mat-card-content>
+        <mat-card-footer class="padding-10px">
+          <a [href]="tile.project.projectUrl" mat-stroked-button>
+            See Project
+            <fa-icon [icon]="faArrowUpRightFromSquare">
+
+            </fa-icon>
+          </a>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

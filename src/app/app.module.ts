@@ -25,6 +25,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { VolunteerExperiencesComponent } from './components/volunteer-experiences/volunteer-experiences.component';
 import { WorkExperiencesComponent } from './components/work-experiences/work-experiences.component';
 import { CertificatesComponent } from './components/certificates/certificates.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CertificatesComponent } from './components/certificates/certificates.co
     EducationComponent,
     VolunteerExperiencesComponent,
     CertificatesComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,

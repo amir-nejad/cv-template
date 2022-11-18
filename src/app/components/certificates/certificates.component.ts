@@ -32,7 +32,7 @@ export class CertificatesComponent implements OnInit {
       issueDate: new Date(2020, 2),
       expireDate: new Date(2025, 6),
       credentialId: "MS3829424",
-      credentialUrl: "#",
+      credentialUrl: new URL("https://microsoft.com"),
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ export class CertificatesComponent implements OnInit {
       issueDate: new Date(2022, 2),
       expireDate: new Date(2025, 4),
       credentialId: "G3829424JWOEIG-GE",
-      credentialUrl: "#",
+      credentialUrl: new URL("https://microsoft.com"),
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ export class CertificatesComponent implements OnInit {
       issuingOrganization: "CompTIA",
       issueDate: new Date(2022, 2),
       credentialId: "G2OIEFEW32",
-      credentialUrl: "#",
+      credentialUrl: new URL("https://microsoft.com"),
     },
   ]
 

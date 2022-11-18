@@ -5,5 +5,5 @@ export interface Certificate {
   issueDate: Date,
   expireDate?: Date,
   credentialId: string,
-  credentialUrl: string
+  credentialUrl: URL
 }
