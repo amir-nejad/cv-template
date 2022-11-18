@@ -13,19 +13,28 @@
       fixedTopGap="56" [opened]="!mobileQuery.matches">
       <mat-nav-list>
         <a mat-list-item routerLink="/summary">
+          <fa-icon [icon]="faListUl">
+          </fa-icon>
+          &nbsp;
           Summary
         </a>
         <a mat-list-item routerLink="/skills">
+          <fa-icon [icon]="faCode">
+          </fa-icon>
+          &nbsp;
           Skills
         </a>
         <a mat-list-item routerLink="/work-experiences">
+          <fa-icon [icon]="faBriefcase">
+          </fa-icon>
+          &nbsp;
           Work Experiences
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <main>
+      <main class="container-fluid">
         <router-outlet></router-outlet>
       </main>
     </mat-sidenav-content>

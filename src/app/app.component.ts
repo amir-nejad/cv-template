@@ -1,5 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import { faListUl, faCode, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,12 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 })
 export class AppComponent {
   title = 'CV Template';
+
+  // Menu Icons
+  faListUl = faListUl;
+  faCode = faCode;
+  faBriefcase = faBriefcase;
+
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
