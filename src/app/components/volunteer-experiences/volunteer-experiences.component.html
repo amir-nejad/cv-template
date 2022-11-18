@@ -1,0 +1,39 @@
+<div class="container">
+  <div *ngIf="volunteerExperiences">
+    <div class="padding-10px" *ngFor="let experience of volunteerExperiences">
+      <mat-card id="volunteer_experience_{{experience.id}}" class="full-width">
+        <mat-card-header>
+          <mat-card-title>{{ experience.title }}</mat-card-title>
+          <mat-card-subtitle> {{ experience.company }} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content [innerHTML]="experience.description">
+        </mat-card-content>
+        <mat-card-footer>
+          <div class="container-fluid">
+            <span class="mat-body-strong">
+              {{experience.startDateTime.getFullYear()}}/{{ experience.startDateTime.getMonth() }}
+            </span>
+            &nbsp;
+            <span class="mat-body-strong">-</span>
+            &nbsp;
+            <span class="mat-body-strong" *ngIf="experience.endDateTime">
+              {{ experience.endDateTime.getFullYear() }}/{{ experience.endDateTime.getMonth() }}
+            </span>
+            <span class="mat-body-strong" *ngIf="!experience.endDateTime">
+              Present
+            </span>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <mat-card *ngIf="!volunteerExperiences">
+    <mat-card-content>
+      <h2>
+        Nothing to show...
+      </h2>
+    </mat-card-content>
+  </mat-card>
+</div>

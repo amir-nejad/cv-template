@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SkillLevel } from 'src/app/enums/skill-level';
+import { Language } from 'src/app/interfaces/language';
+import { Skill } from 'src/app/interfaces/skill';
 
 @Component({
   selector: 'app-skills',
@@ -75,24 +78,8 @@ export class SkillsComponent implements OnInit {
 
 }
 
-interface Language {
-  id: number,
-  languageName: string,
-  listeningLevel: SkillLevel,
-  readingLevel: SkillLevel,
-  writingLevel: SkillLevel,
-  speakingLevel: SkillLevel
-}
 
-interface Skill {
-  id: number,
-  skillName: string,
-  skillLevel: SkillLevel
-}
 
-enum SkillLevel {
-  Basic = 25,
-  Intermediate = 50,
-  Advanced = 75,
-  Expert = 100
-}
+
+
+

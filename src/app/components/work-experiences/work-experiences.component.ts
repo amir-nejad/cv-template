@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faL } from '@fortawesome/free-solid-svg-icons';
+import { WorkExperience } from 'src/app/interfaces/work-experience';
 
 @Component({
   selector: 'app-work-experiences',
@@ -51,12 +52,3 @@ export class WorkExperiencesComponent implements OnInit {
 
 }
 
-// Each work experience information
-interface WorkExperience {
-  id: number,
-  title: string,
-  description: string,
-  company: string,
-  startDateTime: Date,
-  endDateTime?: Date
-}
