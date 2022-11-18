@@ -5,7 +5,7 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-certificates',
   templateUrl: './certificates.component.html',
-  styleUrls: ['./certificates.component.less']
+  styleUrls: ['./certificates.component.scss']
 })
 export class CertificatesComponent implements OnInit {
 

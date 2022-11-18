@@ -4,7 +4,7 @@ import { WorkExperience } from 'src/app/interfaces/work-experience';
 @Component({
   selector: 'app-volunteer-experiences',
   templateUrl: './volunteer-experiences.component.html',
-  styleUrls: ['./volunteer-experiences.component.less']
+  styleUrls: ['./volunteer-experiences.component.scss']
 })
 export class VolunteerExperiencesComponent implements OnInit {
   constructor() {

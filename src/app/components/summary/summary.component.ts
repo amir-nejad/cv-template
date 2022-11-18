@@ -6,7 +6,7 @@ import { faInstagram, faLinkedin, faYoutube, faGithub, faDribbble, faPinterest }
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.less']
+  styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
   faInstagram = faInstagram;

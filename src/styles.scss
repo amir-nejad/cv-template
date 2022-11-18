@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .container {
   padding: 30px;
@@ -15,18 +21,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
-
-.padding(@value) {
-  .padding-@{value} {
-    padding: @value;
+@mixin padding($value) {
+  .padding-#{$value} {
+    padding: $value;
   }
 }
 
-.padding(5px);
-.padding(10px);
-.padding(20px);
-.padding(30px);
-
+@include padding("5px");
+@include padding("10px");
+@include padding("15px");
+@include padding("20px");
 
 .text-center {
   text-align: center !important;
@@ -41,7 +45,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 img.rounded-circle {
-  .rounded-circle();
+  @extend .rounded-circle;
   object-fit: cover;
 }
 

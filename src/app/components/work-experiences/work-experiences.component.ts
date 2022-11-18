@@ -5,7 +5,7 @@ import { WorkExperience } from 'src/app/interfaces/work-experience';
 @Component({
   selector: 'app-work-experiences',
   templateUrl: './work-experiences.component.html',
-  styleUrls: ['./work-experiences.component.less']
+  styleUrls: ['./work-experiences.component.scss']
 })
 export class WorkExperiencesComponent implements OnInit {
   constructor() {

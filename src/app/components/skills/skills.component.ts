@@ -6,7 +6,7 @@ import { Skill } from 'src/app/interfaces/skill';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.less']
+  styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
 
