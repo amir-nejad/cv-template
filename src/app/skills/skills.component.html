@@ -51,9 +51,12 @@
             <mat-grid-tile>
               <div class="full-width">
                 <mat-card>
-                  <mat-card-title>
-                    {{ language.languageName}}
-                  </mat-card-title>
+                  <mat-card-header>
+                    <mat-card-title>
+                      {{ language.languageName}}
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-divider></mat-divider>
                   <mat-card-content class="padding-10px">
                     <div class="full-width">
                       <label for="language_{{language.id}}_listening" class="skill-label">
