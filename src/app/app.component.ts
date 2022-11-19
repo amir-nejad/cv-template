@@ -1,5 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, HostBinding} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   faListUl,
   faCode,
@@ -27,6 +28,10 @@ export class AppComponent {
   faCertificate = faCertificate;
   faBorderNone = faBorderNone;
 
+  @HostBinding('class') className = '';
+
+  toggleControl = new FormControl(false);
+
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
@@ -35,6 +40,13 @@ export class AppComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnInit(): void {
+    this.toggleControl.valueChanges.subscribe((darkMode) => {
+      const darkClassName = 'darkMode';
+      this.className = darkMode ? darkClassName : '';
+    });
   }
 
   ngOnDestroy(): void {
