@@ -1,38 +1,45 @@
 <div class="container">
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Bachelor's Degree
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            Computer Science
-          </mat-card-title>
-          <mat-card-subtitle>
-            University of Michigan | 2017 - 2021
-          </mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-    </mat-expansion-panel>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Master's Degree
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            Artificial Intelligence
-          </mat-card-title>
-          <mat-card-subtitle>
-            Harvard University | 2021 - Now
-          </mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <div class="padding-10px" *ngFor="let education of educations">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <span [ngSwitch]="education.grade">
+            <span *ngSwitchCase="0">Diploma</span>
+            <span *ngSwitchCase="1">Bachelor's</span>
+            <span *ngSwitchCase="2">Master's</span>
+            <span *ngSwitchCase="3">Doctorate</span>
+          </span>
+          <span> of </span>
+          {{education.title}}
+        </mat-card-title>
+        <mat-card-subtitle>{{education.university}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          <strong>Location:</strong>
+          {{education.location}}
+        </p>
+        <p>
+          <strong>GPA:</strong>
+          {{education.gpa}} of 4
+        </p>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="padding-10px">
+          <span>
+            {{education.startDate.getFullYear()}}/{{education.startDate.getMonth()}}
+          </span>
+          <span>
+            -
+          </span>
+          <span *ngIf="education.endDate">
+            {{education.endDate.getFullYear()}}/{{education.endDate.getMonth()}}
+          </span>
+          <span *ngIf="!education.endDate">
+            Present
+          </span>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 </div>
