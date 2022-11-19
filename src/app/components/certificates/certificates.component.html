@@ -1,6 +1,6 @@
 <div class="container">
   <div class="certificates" *ngIf="certificates">
-    <mat-grid-list cols="2" gutterSize="20px" rowHeight="600px">
+    <mat-grid-list [cols]="isHandsetScreen ? 1 : 2" gutterSize="20px" rowHeight="600px">
       <mat-grid-tile *ngFor="let certificate of certificates">
         <mat-card>
           <mat-card-header>

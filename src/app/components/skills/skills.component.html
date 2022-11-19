@@ -46,7 +46,7 @@
     </mat-tab>
     <mat-tab label="Language Skills">
       <div class="container-fluid">
-        <mat-grid-list cols="2" gutterSize="10" rowHeight="300px">
+        <mat-grid-list [cols]="isHandsetScreen ? 1 : 2" gutterSize="10" rowHeight="300px">
           <div *ngFor="let language of languages">
             <mat-grid-tile>
               <div class="full-width">

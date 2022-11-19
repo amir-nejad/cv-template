@@ -1,6 +1,7 @@
+
 <div class="container">
   <div *ngIf="workExperiences">
-    <mat-grid-list gutterSize="50" cols="2" rowHeight="360px">
+    <mat-grid-list gutterSize="50" [cols]="isHandsetScreen ? 1 : 2" rowHeight="360px">
       <mat-grid-tile class="container-fluid" *ngFor="let workExperience of workExperiences">
         <mat-card id="experience_{{workExperience.id}}" class="full-width">
           <mat-card-header>

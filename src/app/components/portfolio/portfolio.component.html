@@ -1,6 +1,6 @@
 <div class="container">
-  <mat-grid-list cols="4" gutterSize="5" rowHeight="400px">
-    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+  <mat-grid-list [cols]="isHandsetScreen ? 1 : 4" gutterSize="5" rowHeight="400px">
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="!isHandsetScreen ? tile.cols : 1" [rowspan]="!isHandsetScreen ? tile.rows : 1">
       <mat-card id="project_{{tile.project.id}}" class="full-width">
         <mat-card-header>
           <mat-card-title>
@@ -26,7 +26,7 @@
           </div>
         </mat-card-content>
         <mat-card-footer class="padding-10px">
-          <a [href]="tile.project.projectUrl" mat-stroked-button>
+          <a target="_blank" [href]="tile.project.projectUrl" mat-stroked-button>
             See Project
             <fa-icon [icon]="faArrowUpRightFromSquare">
 

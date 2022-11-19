@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WorkExperience } from 'src/app/interfaces/work-experience';
+import { AppComponent } from '../../app.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-work-experiences',
@@ -8,18 +9,6 @@ import { WorkExperience } from 'src/app/interfaces/work-experience';
   styleUrls: ['./work-experiences.component.scss']
 })
 export class WorkExperiencesComponent implements OnInit {
-  constructor() {
-    this.workExperiences.sort((a, b) => {
-      if (a.startDateTime > b.startDateTime) {
-        return -1;
-      } else if (a.startDateTime === b.startDateTime) {
-        return 0;
-      } else {
-        return 1;
-      }
-    })
-  }
-
   // An array of WorkExperiences
   workExperiences: WorkExperience[] = [
     {
@@ -46,8 +35,28 @@ export class WorkExperiencesComponent implements OnInit {
       startDateTime: new Date(2021, 5),
     },
   ]
+  isHandsetScreen: boolean = false;
+
+  constructor(private responsive: BreakpointObserver) {
+    this.workExperiences.sort((a, b) => {
+      if (a.startDateTime > b.startDateTime) {
+        return -1;
+      } else if (a.startDateTime === b.startDateTime) {
+        return 0;
+      } else {
+        return 1;
+      }
+    })
+  }
 
   ngOnInit(): void {
+    this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+      this.isHandsetScreen = false;
+
+      if(result.matches){
+        this.isHandsetScreen = true;
+      }
+    });
   }
 
 }

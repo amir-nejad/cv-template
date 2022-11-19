@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Certificate } from '../../interfaces/certificate';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-certificates',
@@ -10,19 +11,6 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 export class CertificatesComponent implements OnInit {
 
   faArrowUpRightFromSquare = faArrowUpRightFromSquare;
-
-  constructor() {
-    this.certificates.sort((a, b) => {
-      if (a.issueDate > b.issueDate) {
-        return -1;
-      } else if (a.issueDate === b.issueDate) {
-
-        return 0;
-      } else {
-        return 1;
-      }
-    })
-  }
 
   certificates: Certificate[] = [
     {
@@ -53,7 +41,29 @@ export class CertificatesComponent implements OnInit {
     },
   ]
 
+  isHandsetScreen: boolean = false;
+
+  constructor(private responsive: BreakpointObserver) {
+    this.certificates.sort((a, b) => {
+      if (a.issueDate > b.issueDate) {
+        return -1;
+      } else if (a.issueDate === b.issueDate) {
+
+        return 0;
+      } else {
+        return 1;
+      }
+    })
+  }
+
   ngOnInit(): void {
+    this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+      this.isHandsetScreen = false;
+
+      if(result.matches){
+        this.isHandsetScreen = true;
+      }
+    });
   }
 
 }

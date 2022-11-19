@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tile } from '../../interfaces/tile';
 import { Project } from '../../interfaces/project';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-portfolio',
@@ -66,9 +67,18 @@ export class PortfolioComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  isHandsetScreen: boolean = false;
+
+  constructor(private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+      this.isHandsetScreen = false;
+
+      if(result.matches){
+        this.isHandsetScreen = true;
+      }
+    });
   }
 
 }

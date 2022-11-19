@@ -1,5 +1,5 @@
-import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, Component, OnDestroy, HostBinding} from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Component, HostBinding} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   faListUl,
@@ -17,7 +17,7 @@ import {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CV Template';
+  title = 'Responsive CV Template';
 
   // Menu Icons
   faListUl = faListUl;
@@ -32,24 +32,26 @@ export class AppComponent {
 
   toggleControl = new FormControl(false);
 
-  mobileQuery: MediaQueryList;
+  isHandsetScreen: boolean = false;
 
-  private _mobileQueryListener: () => void;
+  constructor(private responsive: BreakpointObserver){
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {
+    // Dark Mode
     this.toggleControl.valueChanges.subscribe((darkMode) => {
       const darkClassName = 'darkMode';
       this.className = darkMode ? darkClassName : '';
     });
-  }
 
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    // Responsive
+    this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+      this.isHandsetScreen = false;
+
+      if(result.matches){
+        this.isHandsetScreen = true;
+      }
+    });
   }
 }

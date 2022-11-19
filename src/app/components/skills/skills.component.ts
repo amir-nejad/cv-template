@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SkillLevel } from 'src/app/enums/skill-level';
 import { Language } from 'src/app/interfaces/language';
 import { Skill } from 'src/app/interfaces/skill';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-skills',
@@ -71,9 +72,18 @@ export class SkillsComponent implements OnInit {
      },
   ]
 
-  constructor() { }
+  isHandsetScreen: boolean = false;
+
+  constructor(private responsive: BreakpointObserver) { }
 
   ngOnInit(): void {
+    this.responsive.observe(Breakpoints.Handset).subscribe(result => {
+      this.isHandsetScreen = false;
+
+      if(result.matches){
+        this.isHandsetScreen = true;
+      }
+    });
   }
 
 }
